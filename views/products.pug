@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    h1.mb-4.text-center Product Management System
+
+    // Form thêm sản phẩm
+    form(action="/products/add" method="POST" class="row g-3 mb-4")
+        .col-md-2
+            input.form-control(type="text" name="ProductCode" placeholder="Code" required)
+        .col-md-2
+            input.form-control(type="text" name="ProductName" placeholder="Name" required)
+        .col-md-2
+            input.form-control(type="date" name="ProductDate" required)
+        .col-md-2
+            input.form-control(type="number" name="ProductOriginPrice" placeholder="Price" required)
+        .col-md-1
+            input.form-control(type="number" name="Quantity" placeholder="Qty" required)
+        .col-md-2
+            input.form-control(type="text" name="ProductStoreCode" placeholder="StoreCode" required)
+        .col-md-1
+            button.btn.btn-success(type="submit") Add
+
+    // Hiển thị sản phẩm
+    table.table.table-bordered
+        thead
+            tr
+                th Code
+                th Name
+                th Date
+                th Price
+                th Qty
+                th Store
+                th Action
+        tbody
+            each product in products
+                tr
+                    td= product.ProductCode
+                    td= product.ProductName
+                    td= product.ProductDate.toDateString()
+                    td= product.ProductOriginPrice.toLocaleString()
+                    td= product.Quantity
+                    td= product.ProductStoreCode
+                    td.text-center
+                        a.btn.btn-danger.btn-sm(href=`/products/delete/${product._id}`) Delete
