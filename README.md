@@ -65,3 +65,6 @@ Server will run at:
 ```bash
 http://localhost:3000
 ```
+### Image demo
+<img width="1792" height="562" alt="image" src="https://github.com/user-attachments/assets/104b64ad-e2a4-4c0a-8014-d70853fa711e" />
+
